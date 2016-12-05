@@ -22,13 +22,14 @@ class ProductsControllerTest < ActionDispatch::IntegrationTest
     assert_response :success
   end
 
-#  test "should create product" do
-#    assert_difference('Product.count') do
+  test "should create product" do
+    assert_difference('Product.count') do
 #       post :create, product: @update
-#    end
-#
-#    assert_redirected_to product_url(Product.last)
-#  end
+       post '/products', product: @update
+    end
+
+    assert_redirected_to product_url(Product.last)
+  end
 
   test "should show product" do
     get product_url(@product)
@@ -42,7 +43,7 @@ class ProductsControllerTest < ActionDispatch::IntegrationTest
 
 #  test "should update product" do
 ##    patch :update, id: @product, product: @update
-#    patch product_url(@product), params: { product: @update }
+#    patch '/products', id: @product, product: @update
 #    assert_redirected_to product_path(assigns(:product))
 #  end
 
